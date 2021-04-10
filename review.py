@@ -7,3 +7,9 @@ with open('reviews.txt','r') as f:
 		if count % 1000 == 0:
 			print(len(data))
 print('檔案讀取完畢，共有',len(data),'筆資料')
+
+sum_len = 0
+for d in data:
+	sum_len += len(d) #sum+len + len(d)
+	
+print('每一筆留言平均長度是',sum_len/len(data))

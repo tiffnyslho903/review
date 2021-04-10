@@ -22,3 +22,12 @@ print('共有',len(new),'個留言，少於100字') #印一次要放出面
 print(new[0])
 print('------------')
 print(new[1])
+
+good = []
+for d in data:
+	if 'good' in d:
+			good.append(d)
+
+print('共有',len(good),'提到good')
+print(good[0])
+

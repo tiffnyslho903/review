@@ -6,9 +6,4 @@ with open('reviews.txt','r') as f:
 		count += 1
 		if count % 1000 == 0:
 			print(len(data))
-print(len(data))
-print(data[0])
-print('----------------')
-print(data[1])
-print('----------------')
-print(data[2])
+print('檔案讀取完畢，共有',len(data),'筆資料')

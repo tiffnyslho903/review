@@ -8,26 +8,52 @@ with open('reviews.txt','r') as f:
 			print(len(data))
 print('檔案讀取完畢，共有',len(data),'筆資料')
 
-sum_len = 0
+wc = {}
 for d in data:
-	sum_len += len(d) #sum+len + len(d)
-print('每一筆留言平均長度是',sum_len/len(data))
+	words = d.split(' ')
+	for word in words:
+		if word in wc:
+			wc[word] += 1 
+		else:
+			wc[word] = 1 #add new key into dict
+for word in wc:
+	if wc[word] > 100:
+		print(word, wc[word])
 
-new = []
-for d in data:
-	if len(d) < 100:
-		new.append(d)
+print(len(wc))
 
-print('共有',len(new),'個留言，少於100字') #印一次要放出面
-print(new[0])
-print('------------')
-print(new[1])
+while True:
+	word = input('Enter a word that you want find:')
+	if word == 'q':
+		break
+	if word in wc:
+		print (word, 'excit', wc[word], 'times')
+	else:
+		print('sorry, the word is not excit')
 
-good = []
-for d in data:
-	if 'good' in d:
-			good.append(d)
+print('thank you for using this program')
 
-print('共有',len(good),'提到good')
-print(good[0])
+
+# sum_len = 0
+# for d in data:
+# 	sum_len += len(d) #sum+len + len(d)
+# print('每一筆留言平均長度是',sum_len/len(data))
+
+# new = []
+# for d in data:
+# 	if len(d) < 100:
+# 		new.append(d)
+
+# print('共有',len(new),'個留言，少於100字') #印一次要放出面
+# print(new[0])
+# print('------------')
+# print(new[1])
+
+# good = []
+# for d in data:
+# 	if 'good' in d:
+# 			good.append(d)
+
+# print('共有',len(good),'提到good')
+# print(good[0])
 
